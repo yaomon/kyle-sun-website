@@ -1,0 +1,15 @@
+a {
+    color: rgb(180, 100, 50);
+}
+
+#message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#tag {
+    text-align: center; 
+    font-family: sans-serif;
+}
