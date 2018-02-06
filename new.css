@@ -9,7 +9,13 @@ a {
     transform: translate(-50%, -50%);
 }
 
-#tag {
+#para {
     text-align: center; 
     font-family: sans-serif;
+    float: left;
+}
+
+#cons {
+    float:left;
+    image-rendering: pixelated;
 }
