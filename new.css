@@ -10,12 +10,12 @@ a {
 }
 
 #para {
-    text-align: center; 
+    text-align: right; 
     font-family: sans-serif;
     float: left;
 }
 
 #cons {
-    float:left;
+    float:right;
     image-rendering: pixelated;
 }
