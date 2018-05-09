@@ -212,6 +212,20 @@
             });
         });
         
+        $(".catbutt").each(function (index) {
+            // Set category buttons counter skew
+            $(this).css("transform", "skewX(" + -(90 - (window.innerHeight / 47.45 - (window.innerWidth / 96 - 20))) + "deg)");
+            $(this).css("-webkit-transform", "skewX(" + -(90 - (window.innerHeight / 47.45 - (window.innerWidth / 96 - 20))) + "deg)");
+            $(this).css("-moz-transform", "skewX(" + -(90 - (window.innerHeight / 47.45 - (window.innerWidth / 96 - 20))) + "deg)");
+            $(this).css("-ms-transform", "skewX(" + -(90 - (window.innerHeight / 47.45 - (window.innerWidth / 96 - 20))) + "deg)");
+            $(this).css("-o-transform", "skewX(" + -(90 - (window.innerHeight / 47.45 - (window.innerWidth / 96 - 20))) + "deg)");
+        });
+        $("#categories").css("transform", "skewX(" + (90 - (window.innerHeight / 47.45 - (window.innerWidth / 96 - 20))) + "deg)");
+        $("#categories").css("-webkit-transform", "skewX(" + (90 - (window.innerHeight / 47.45 - (window.innerWidth / 96 - 20))) + "deg)");
+        $("#categories").css("-moz-transform", "skewX(" + (90 - (window.innerHeight / 47.45 - (window.innerWidth / 96 - 20))) + "deg)");
+        $("#categories").css("-ms-transform", "skewX(" + (90 - (window.innerHeight / 47.45 - (window.innerWidth / 96 - 20))) + "deg)");
+        $("#categories").css("-o-transform", "skewX(" + (90 - (window.innerHeight / 47.45 - (window.innerWidth / 96 - 20))) + "deg)");
+        
         $("#gallery").html("");
         for (i = 1; i <= charImages; i += 1) {
             addPrev("c", i, 0, "Pixel", ".gif");
