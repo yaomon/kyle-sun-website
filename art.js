@@ -7,33 +7,44 @@
         effImages = 13,
         objImages = 15,
         sceneImages = 13,
-        digImages = 10;
+        digImages = 12,
+        TDImages = 11;
 
     function redrawFullImg(bgwidth, bgheight) {
         switch (category) {
-            case "pixel":
-                $("#fullimg").css("image-rendering", "pixelated");
-                if ((bgheight * 3.1) < $("#fullimgcont").height() && (bgwidth * 3.1) < $("#fullimgcont").width()) {
-                    $("#fullimg").css("background-size", bgwidth * 3 + "px " + bgheight * 3 + "px");
-                    $("#fullimg").css("width", bgwidth * 3 + "px ");
-                    $("#fullimg").css("height", bgheight * 3 + "px");
-                } else if ((bgheight * 2.1) < $("#fullimgcont").height() && (bgwidth * 2.1) < $("#fullimgcont").width()) {
-                    $("#fullimg").css("background-size", bgwidth * 2 + "px " + bgheight * 2 + "px");
-                    $("#fullimg").css("width", bgwidth * 2 + "px ");
-                    $("#fullimg").css("height", bgheight * 2 + "px");
-                } else {
-                    $("#fullimg").css("background-size", bgwidth + "px " + bgheight + "px");
-                    $("#fullimg").css("width", bgwidth + "px ");
-                    $("#fullimg").css("height", bgheight + "px");
-                }
-                break;
-            case "digital":
-                $("#fullimg").css("width", "100%");
-                $("#fullimg").css("height", "100%");
-                $("#fullimg").css("background-size", "contain");
-                $("#fullimg").css("image-rendering", "auto");
-                break;
-            default:
+        case "pixel":
+            $("#fullimg").css("image-rendering", "pixelated");
+            if ((bgheight * 3.1) < $("#fullimgcont").height() && (bgwidth * 3.1) < $("#fullimgcont").width()) {
+                $("#fullimg").css("background-size", bgwidth * 3 + "px " + bgheight * 3 + "px");
+                $("#fullimg").css("width", bgwidth * 3 + "px ");
+                $("#fullimg").css("height", bgheight * 3 + "px");
+            } else if ((bgheight * 2.1) < $("#fullimgcont").height() && (bgwidth * 2.1) < $("#fullimgcont").width()) {
+                $("#fullimg").css("background-size", bgwidth * 2 + "px " + bgheight * 2 + "px");
+                $("#fullimg").css("width", bgwidth * 2 + "px ");
+                $("#fullimg").css("height", bgheight * 2 + "px");
+            } else {
+                $("#fullimg").css("background-size", bgwidth + "px " + bgheight + "px");
+                $("#fullimg").css("width", bgwidth + "px ");
+                $("#fullimg").css("height", bgheight + "px");
+            }
+            break;
+        case "digital":
+            $("#fullimg").css("width", "100%");
+            $("#fullimg").css("height", "100%");
+            $("#fullimg").css("background-size", "contain");
+            $("#fullimg").css("image-rendering", "auto");
+            break;
+        case "3D":
+            $("#fullimg").css("width", "100%");
+            $("#fullimg").css("height", "100%");
+            $("#fullimg").css("background-size", "contain");
+            $("#fullimg").css("image-rendering", "auto");
+            break;
+        default:
+            $("#fullimg").css("width", "100%");
+            $("#fullimg").css("height", "100%");
+            $("#fullimg").css("background-size", "contain");
+            $("#fullimg").css("image-rendering", "auto");
         }
     }
     
@@ -137,7 +148,7 @@
         imurl = "Images/Gallery/" + type + "/" + cat + num + format;
         imgwrap = $("<div></div>").addClass("imgwrap");
         imgel = $("<div></div>").addClass("preview");
-        imgel.click(function(){
+        imgel.click(function () {
             $(".preview").removeClass("selected");
             $(this).addClass("selected");
         });
@@ -156,7 +167,7 @@
             });
             $("#gallery").animate({scrollLeft: 203 * (scrollNum + parseInt(index, 10) - 1)}, 400, "swing");
         });
-        $("#gallery").append(imgwrap);        
+        $("#gallery").append(imgwrap);
     }
     
     function setGalPixel() {
@@ -170,7 +181,7 @@
             $(image).load(function () {
                 redrawFullImg(image.width, image.height);
             });
-        });        
+        });
         $("#catobj").click(function () {
             $("#fullimg").css("background-image", "url(Images/Gallery/Pixel/o1.gif)");
             $("#gallery").animate({scrollLeft: 203 * (charImages)}, 300, "swing");
@@ -199,14 +210,15 @@
             $(image).load(function () {
                 redrawFullImg(image.width, image.height);
             });
-        });    
+        });
+        
         $("#gallery").html("");
         for (i = 1; i <= charImages; i += 1) {
             addPrev("c", i, 0, "Pixel", ".gif");
-        }        
+        }
         for (i = 1; i <= objImages; i += 1) {
             addPrev("o", i, charImages, "Pixel", ".gif");
-        }        
+        }
         for (i = 1; i <= effImages; i += 1) {
             addPrev("f", i, charImages + objImages, "Pixel", ".gif");
         }
@@ -221,7 +233,16 @@
         $("#gallery").html("");
         for (i = 1; i <= digImages; i += 1) {
             addPrev("", i, 0, "Digital", ".png");
-        }        
+        }
+    }
+    
+    function setGalTD() {
+        var i;
+        $("#categories").html("");
+        $("#gallery").html("");
+        for (i = 1; i <= TDImages; i += 1) {
+            addPrev("", i, 0, "TD", ".gif");
+        }
     }
 
     window.onresize = redraw;
@@ -258,13 +279,13 @@
         image.src = "Images/Gallery/Pixel/c1.gif";
         redrawFullImg(image.width, image.height);
         
-        $(".arttab").click(function(){
+        $(".arttab").click(function () {
             $(".arttab").removeClass("selected");
             $(this).addClass("selected");
         });
         
-        $("#tabart1").click(function(){
-            setGalPixel();            
+        $("#tabart1").click(function () {
+            setGalPixel();
             category = "pixel";
             $("#fullimg").css("background-image", "url(Images/Gallery/Pixel/c1.gif)");
             var image = new Image();
@@ -272,16 +293,25 @@
             redrawFullImg(image.width, image.height);
         });
             
-        $("#tabart2").click(function(){
+        $("#tabart2").click(function () {
             setGalDigital();
             category = "digital";
             $("#fullimg").css("background-image", "url(Images/Gallery/Digital/1.png)");
             var image = new Image();
-            image.src = "Images/Gallery/Pixel/c1.gif";
+            image.src = "Images/Gallery/Digital/1.png";
+            redrawFullImg(image.width, image.height);
+        });
+        
+        $("#tabart3").click(function () {
+            setGalTD();
+            category = "3D";
+            $("#fullimg").css("background-image", "url(Images/Gallery/TD/1.gif)");
+            var image = new Image();
+            image.src = "Images/Gallery/TD/1.gif";
             redrawFullImg(image.width, image.height);
         });
 
-        $(".arttext").click(function(){
+        $(".arttext").click(function () {
             $(".arttext").removeClass("selected");
             $(this).addClass("selected");
         });
