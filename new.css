@@ -12,6 +12,7 @@ a {
 
 body {
     background-color: rgb(210, 210, 210);
+    overflow: hidden;
 }
 
 p {
@@ -159,7 +160,6 @@ p {
 
 .arttab {
     width: 11.4vw;
-    min-width: 120px;
     height: 78vh;
     float: left;
     -ms-transform: skewY(20deg); 
@@ -241,6 +241,7 @@ p {
 .catimg {    
     margin-left: -20px;
     float: left;
+    width: 26.97vmin;
 }
 
 #categories {
@@ -290,27 +291,116 @@ p {
     cursor: pointer;
 }
 
+.codetab {
+    width: 29vw;
+    height: 20vh;
+    float: right;
+    -ms-transform: skewX(-10deg); 
+    -webkit-transform: skewX(-10deg); 
+    transform: skewX(-10deg);
+    -ms-transition: 0.4s; 
+    -webkit-transition: 0.4s; 
+    transition: 0.4s;
+    overflow: hidden;    
+    display: flex;
+    align-items: center;
+}
+
+#codetab1 {    
+    background-color: rgba(200, 100, 250, 0.8);
+    color: rgb(50, 50, 50);
+    margin-left: 5.1vw;
+}
+
+#codetab1:hover, #codetab1.selected {
+    background-color: rgba(80, 155, 90, 0.6);
+    color: rgb(230, 240, 250);
+    margin-left: 3.4vw;
+    cursor: pointer;
+}
+
+#codetab2 {
+    background-color: rgba(250, 255, 90, 0.8);
+    color: rgb(50, 50, 50);
+    margin-left: 3.4vw;
+}
+
+#codetab2:hover, #codetab2.selected {    
+    background-color: rgba(90, 95, 190, 0.6);
+    color: rgb(230, 240, 250);
+    margin-left: 1.7vw;
+    cursor: pointer;
+}
+
+#codetab3 {
+    background-color: rgba(90, 195, 90, 0.8);
+    color: rgb(50, 50, 50);
+    margin-left: 1.7vw;
+}
+
+#codetab3:hover, #codetab3.selected {
+    background-color: rgba(190, 95, 190, 0.6);
+    color: rgb(230, 240, 250);
+    margin-left: 0vw;
+    cursor: pointer;
+}
+
+#codetab4 {
+    background-color: rgba(90, 90, 195, 0.8);
+    color: rgb(50, 50, 50);
+}
+
+#codetab4:hover, #codetab3.selected {
+    background-color: rgba(190, 195, 90, 0.6);
+    color: rgb(230, 240, 250);
+    margin-left: -1.7vw;
+    cursor: pointer;
+}
+
+.engimg {
+    margin: auto;
+    margin-right: 60%;
+    height: 80%;
+    -ms-transform: skewX(10deg); 
+    -webkit-transform: skewX(10deg); 
+    transform: skewX(10deg);
+}
+
+#tabcont, #tabcontart, #codetabcont {
+    display: flex;
+    position: absolute;
+}
+
 #tabcontart {
     flex-direction: row;
     position: absolute;
+    width: 35%;
     top: -15vh;
     right: 20px;
 }
 
-#arrleft:hover, #arrright:hover {    
-    margin-top: 66px;
-    opacity: 1;
-    cursor: pointer;
-}
-
 #fullimgcont {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 65%;
-    height: 65%;
+    top: 1%;
+    left: 1%;
+    width: 60%;
+    height: 60%;
     overflow: visible;
     display: flex;
+    align-items: center;
+}
+
+#codetabcont {
+    flex-direction: column;
+    bottom: 22px;
+    right: -18vw;
+    width: 35vw;
+}
+
+#tabcont {
+    flex-direction: column;
+    bottom: 22px;
+    left: -40px;
 }
 
 #fullimg {
@@ -326,12 +416,11 @@ p {
 #galwrap {
     position: absolute;
     left: 0px;
-    bottom: 4.6vh;
+    bottom: 0px;
     width: 90%;
 }
 
 #gallery {
-    clear: left;
     max-height: 227px;
     height: 25vh;
     white-space: nowrap;
@@ -344,7 +433,7 @@ p {
 }
 
 #gallery::-webkit-scrollbar{
-    height: 20px;
+    height: 24px;
 }
 
 #gallery::-webkit-scrollbar-track{
@@ -362,9 +451,9 @@ p {
 
 .imgwrap {
     display: inline-block;
-    width: 200px;
+    width: 20vmin;
     overflow: hidden;
-    height: 200px;
+    height: 20vmin;
     border-right-style: solid;
     border-color: rgb(180, 180, 180);
     -ms-transform: skewX(-20deg); 
@@ -375,8 +464,8 @@ p {
 .preview {
     background-position: center;
     background-repeat: no-repeat;
-    width: 300px;
-    height: 200px;
+    width: 150%;
+    height: 100%;
     margin: auto;
     margin-left: -50px;
     -ms-transform: skewX(20deg); 
@@ -420,15 +509,45 @@ p {
     image-rendering: pixelated;
 }
 
-#tabcont, #tabcontart {
-    display: flex;
+#gamegal {
     position: absolute;
+    left: 0px;
+    background-color: rgb(170, 170, 170);
+    width: 80%;
+    margin-left: -100px;
+    height: 80%;
+    bottom: 22px;
+    -ms-transform: skewX(-10deg); 
+    -webkit-transform: skewX(-10deg); 
+    transform: skewX(-10deg);
 }
 
-#tabcont {
-    flex-direction: column;
-    bottom: 22px;
-    left: -40px;
+#codeprev {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(Images/Games/Construct/ZombieMil/zm2.gif);
+    float: left;   
+    -ms-transition: 0.1s; 
+    -webkit-transition: 0.1s; 
+    transition: 0.1s;
+    width: 80%;
+    height: 80%;
+    -ms-transform: skewX(10deg); 
+    -webkit-transform: skewX(10deg); 
+    transform: skewX(10deg);
+    margin-top: 5%;
+    margin-left: 1%;
+}
+
+#codedesc {
+    float: right;
+    margin-top: 5%;
+    margin-right: 1%;
+    font-family: sans-serif;
+    line-height: 1.5;
+    font-weight: bold;
+    width: 18%;
 }
 
 #slideshow {
@@ -451,6 +570,7 @@ p {
     overflow: visible;
     margin: auto;
     display: flex;
+    align-items: center;
 }
 
 .noselect {

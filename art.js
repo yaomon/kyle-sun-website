@@ -3,10 +3,10 @@
 (function () {
     "use strict";
     var scroll1art, scroll2art, scroll3art, scroll1artcounter = 0, scroll2artcounter = 0, scroll3artcounter = 0, category = "pixel",
-        charImages = 32,
-        effImages = 13,
+        charImages = 34,
+        effImages = 14,
         objImages = 15,
-        sceneImages = 13,
+        sceneImages = 17,
         digImages = 12,
         TDImages = 11;
 
@@ -165,7 +165,7 @@
             $(image).load(function () {
                 redrawFullImg(image.width, image.height);
             });
-            $("#gallery").animate({scrollLeft: 203 * (scrollNum + parseInt(index, 10) - 1)}, 400, "swing");
+            $("#gallery").animate({scrollLeft: 192.5 * (scrollNum + parseInt(index, 10) - 1)}, 400, "swing");
         });
         $("#gallery").append(imgwrap);
     }
@@ -184,7 +184,7 @@
         });
         $("#catobj").click(function () {
             $("#fullimg").css("background-image", "url(Images/Gallery/Pixel/o1.gif)");
-            $("#gallery").animate({scrollLeft: 203 * (charImages)}, 300, "swing");
+            $("#gallery").animate({scrollLeft: 192.5 * (charImages)}, 300, "swing");
             var image = new Image();
             image.src = "Images/Gallery/Pixel/o1.gif";
             $(image).load(function () {
@@ -194,7 +194,7 @@
         
         $("#cateff").click(function () {
             $("#fullimg").css("background-image", "url(Images/Gallery/Pixel/f1.gif)");
-            $("#gallery").animate({scrollLeft: 203 * (charImages + objImages)}, 300, "swing");
+            $("#gallery").animate({scrollLeft: 192.5 * (charImages + objImages)}, 300, "swing");
             var image = new Image();
             image.src = "Images/Gallery/Pixel/f1.gif";
             $(image).load(function () {
@@ -204,7 +204,7 @@
                            
         $("#catscene").click(function () {
             $("#fullimg").css("background-image", "url(Images/Gallery/Pixel/s1.gif)");
-            $("#gallery").animate({scrollLeft: 203 * (charImages + objImages + effImages)}, 300, "swing");
+            $("#gallery").animate({scrollLeft: 192.5 * (charImages + objImages + effImages)}, 300, "swing");
             var image = new Image();
             image.src = "Images/Gallery/Pixel/s1.gif";
             $(image).load(function () {
@@ -239,6 +239,7 @@
         for (i = 1; i <= sceneImages; i += 1) {
             addPrev("s", i, charImages + objImages + effImages, "Pixel", ".gif");
         }
+        $("#gallery").animate({scrollLeft: 0}, 400, "swing");
     }
     
     function setGalDigital() {
@@ -248,6 +249,7 @@
         for (i = 1; i <= digImages; i += 1) {
             addPrev("", i, 0, "Digital", ".png");
         }
+        $("#gallery").animate({scrollLeft: 0}, 400, "swing");
     }
     
     function setGalTD() {
@@ -257,6 +259,7 @@
         for (i = 1; i <= TDImages; i += 1) {
             addPrev("", i, 0, "TD", ".gif");
         }
+        $("#gallery").animate({scrollLeft: 0}, 400, "swing");
     }
 
     window.onresize = redraw;

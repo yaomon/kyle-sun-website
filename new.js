@@ -2,7 +2,7 @@
 /*global $, jQuery, alert*/
 (function () {
     "use strict";
-    var scroll1, scroll2, scroll3, scroll4, scroll1counter = 0, scroll2counter = 0, scroll3counter = 0, scroll4counter = 0, slidecounter = 0, category, 
+    var scroll1, scroll2, scroll3, scroll4, scroll1counter = 0, scroll2counter = 0, scroll3counter = 0, scroll4counter = 0, slidecounter = 0, category,
         slides = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "d1", "d2", "d3", "t1"];
     
     function redrawFullImg(bgwidth, bgheight) {
@@ -74,7 +74,7 @@
             $(image).load(function () {
                 redrawFullImg(image.width, image.height);
             });
-        }       
+        }
     }
     
     function scroll1f() {
@@ -144,9 +144,9 @@
             $("#slideshow").css("background-size", "contain");
             $("#slideshow").css("image-rendering", "auto");
             $("#slideshow").css("background-image", imurl);
-        } else {            
+        } else {
             imurl = "Images/Gallery/Featured/" + newPic + ".gif";
-            category = "pixel"
+            category = "pixel";
             image = new Image();
             image.src = imurl;
             $(image).load(function () {
@@ -212,7 +212,7 @@
             scroll4 = setInterval(scroll4f, 60);
         });
         slideChange();
-        setInterval(slideChange, 5000);        
+        setInterval(slideChange, 5000);
     };
     
 }());
