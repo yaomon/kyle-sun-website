@@ -348,11 +348,10 @@ p {
 #codetab4 {
     background-color: rgba(90, 90, 195, 0.8);
     color: rgb(50, 50, 50);
-	padding-left: 15%;
-	font-size: 10em;
+	margin-left: 0vw;
 }
 
-#codetab4:hover, #codetab3.selected {
+#codetab4:hover, #codetab4.selected {
     background-color: rgba(190, 195, 90, 0.6);
     color: rgb(230, 240, 250);
     margin-left: -1.7vw;
@@ -362,7 +361,7 @@ p {
 .engimg {
     margin: auto;
     margin-right: 60%;
-    height: 80%;
+    height: 8vmax;
     -ms-transform: skewX(10deg); 
     -webkit-transform: skewX(10deg); 
     transform: skewX(10deg);
@@ -455,12 +454,16 @@ p {
     max-height: 227px;
     height: 25vh;
     white-space: nowrap;
-    width: 84%;
+    width: 50%;
     overflow-x: scroll;
     overflow-y: hidden;
     -ms-transition: 0.4s; 
     -webkit-transition: 0.4s; 
     transition: 0.4s;
+    float: left;
+    margin-top: 2%;
+    padding-left: 1%;
+    margin-left: 10%;
 }
 
 #codegal::-webkit-scrollbar{
@@ -478,6 +481,36 @@ p {
 
 #codegal::-webkit-scrollbar-thumb:hover{
     background: rgb(140, 140, 140);
+}
+
+#codego {
+    width: 100%;
+    margin-top: 4%;
+    padding: 4%;
+    font-size: 30px;
+    background: rgba(120, 120, 120, 0.5);
+    -ms-transition: 0.2s; 
+    -webkit-transition: 0.2s; 
+    transition: 0.2s;
+    position: absolute;
+    bottom: 0;
+    color: rgba(20, 20, 20, 0.8);
+    font-size: 2vmax;
+}
+
+#codego:hover {
+    cursor: pointer;
+    background: rgb(110, 110, 110);
+    color: black;
+}
+
+#gametitle {
+    float: left;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 5%;
+    width: 15.5vw;
+    margin: auto;
 }
 
 .imgwrap {
@@ -517,6 +550,36 @@ p {
     cursor: pointer;
 }
 
+.gamewrap {
+    display: inline-block;
+    width: 20vmin;
+    overflow: hidden;
+    height: 20vmin;
+    border: none;
+}
+
+.gameprev {
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 150%;
+    height: 100%;
+    margin: auto;
+    margin-left: -50px;
+    -ms-transform: skewX(10deg); 
+    -webkit-transform: skewX(10deg); 
+    transform: skewX(10deg);
+    opacity: 0.3;
+}
+
+.gameprev.selected {
+    opacity: 1.0;
+}
+
+.gameprev:hover {
+    opacity: 1.0;
+    cursor: pointer;
+}
+
 #logoart {
     width: 10%;
     position: absolute;
@@ -548,37 +611,40 @@ p {
     margin-left: -100px;
     height: 80%;
     bottom: 22px;
-    -ms-transform: skewX(-10deg); 
-    -webkit-transform: skewX(-10deg); 
-    transform: skewX(-10deg);
+    overflow: hidden;
 }
 
 #codeprev {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url(Images/Games/Construct/ZombieMil/zm2.gif);
-    float: left;   
+    background-image: url(Images/Games/Construct/ZombieMil/c1.gif);
+    float: left;
     -ms-transition: 0.1s; 
     -webkit-transition: 0.1s; 
     transition: 0.1s;
-    width: 60%;
-    height: 60%;
-    -ms-transform: skewX(10deg); 
-    -webkit-transform: skewX(10deg); 
-    transform: skewX(10deg);
-    margin-top: 5%;
-    margin-left: 3%;
+    width: 50%;
+    height: 50%;
+    padding: 2.5%;
+    margin-top: 3%;
+    margin-left: 5%;
 }
 
 #codedesc {
     float: right;
-    margin-top: 5%;
+    margin-top: 3%;
     margin-right: 2%;
     font-family: sans-serif;
+    font-size: 1vmax;
     line-height: 1.5;
     font-weight: bold;
     width: 35%;
+    height: 94%;
+    color: rgba(20, 20, 20, 0.9);
+    position: relative;
+    -ms-transform: skewX(10deg); 
+    -webkit-transform: skewX(10deg); 
+    transform: skewX(10deg);
 }
 
 #slideshow {
