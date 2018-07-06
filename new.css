@@ -315,7 +315,7 @@ p {
 #codetab1:hover, #codetab1.selected {
     background-color: rgba(80, 155, 90, 0.6);
     color: rgb(230, 240, 250);
-    margin-left: 3.4vw;
+    margin-left: 2.1vw;
     cursor: pointer;
 }
 
@@ -328,7 +328,7 @@ p {
 #codetab2:hover, #codetab2.selected {    
     background-color: rgba(90, 95, 190, 0.6);
     color: rgb(230, 240, 250);
-    margin-left: 1.7vw;
+    margin-left: 0.4vw;
     cursor: pointer;
 }
 
@@ -341,7 +341,7 @@ p {
 #codetab3:hover, #codetab3.selected {
     background-color: rgba(190, 95, 190, 0.6);
     color: rgb(230, 240, 250);
-    margin-left: 0vw;
+    margin-left: -1.3vwvw;
     cursor: pointer;
 }
 
@@ -354,7 +354,7 @@ p {
 #codetab4:hover, #codetab4.selected {
     background-color: rgba(190, 195, 90, 0.6);
     color: rgb(230, 240, 250);
-    margin-left: -1.7vw;
+    margin-left: -3vw;
     cursor: pointer;
 }
 
@@ -393,9 +393,12 @@ p {
 
 #codetabcont {
     flex-direction: column;
-    bottom: 22px;
-    right: -18vw;
-    width: 35vw;
+    bottom: 5%;
+    right: 0;
+    padding-right: 14vw;
+    padding-left: 5vw;
+    overflow: hidden;
+    width: 5vw;
 }
 
 #tabcont {
@@ -475,7 +478,7 @@ p {
 }
 
 #codegal::-webkit-scrollbar-thumb{
-    background: rgb(180, 180, 180);
+    background: rgb(220, 220, 220);
     border-radius: 10px;
 }
 
@@ -485,7 +488,6 @@ p {
 
 #codego {
     width: 100%;
-    margin-top: 4%;
     padding: 4%;
     font-size: 30px;
     background: rgba(120, 120, 120, 0.5);
@@ -493,7 +495,8 @@ p {
     -webkit-transition: 0.2s; 
     transition: 0.2s;
     position: absolute;
-    bottom: 0;
+    bottom: 1vmax;
+    text-align: center;
     color: rgba(20, 20, 20, 0.8);
     font-size: 2vmax;
 }
@@ -506,10 +509,8 @@ p {
 
 #gametitle {
     float: left;
-    padding-left: 20%;
-    padding-right: 20%;
     padding-bottom: 5%;
-    width: 15.5vw;
+    width: 26.667vw;
     margin: auto;
 }
 
@@ -608,9 +609,9 @@ p {
     left: 0px;
     background-color: rgb(170, 170, 170);
     width: 80%;
-    margin-left: -100px;
+    margin-left: -4%;
     height: 80%;
-    bottom: 22px;
+    bottom: 5%;
     overflow: hidden;
 }
 
@@ -618,7 +619,6 @@ p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url(Images/Games/Construct/ZombieMil/c1.gif);
     float: left;
     -ms-transition: 0.1s; 
     -webkit-transition: 0.1s; 
@@ -639,7 +639,7 @@ p {
     line-height: 1.5;
     font-weight: bold;
     width: 35%;
-    height: 94%;
+    height: 97%;
     color: rgba(20, 20, 20, 0.9);
     position: relative;
     -ms-transform: skewX(10deg); 
@@ -678,4 +678,15 @@ p {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+}
+
+#footer {
+    position: fixed;
+    bottom: 1%;
+    margin: auto;
+    font-family: sans-serif;
+    color: rgba(60, 60, 60, 0.7);
+    font-weight: bolder;
+    right: 1%;
+    text-align: center;
 }
