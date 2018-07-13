@@ -2,7 +2,7 @@
 /*global $, jQuery, alert*/
 (function () {
     "use strict";
-    //A simple game of snake made with Javascript, CSS, and HTML. Graphics are drawn using HTML DOM elements.
+    var timeouts = [];
     
 	function redraw() {
         $(".codetab").each(function (index) {
@@ -50,13 +50,12 @@
         imurl = "Images/Games/" + type + "/" + game + "/game.gif";
         imgwrap = $("<div></div>").addClass("gamewrap");
         imgel = $("<div></div>").addClass("gameprev");
+        imgel.fadeTo(200, 0.3);
         imgel.click(function () {
             $(".gameprev").removeClass("selected");
             $(this).addClass("selected");
         });
-        if (game === "ZombieMil") {
-            imgel.addClass("selected");
-        }      
+        linkstring = "";
         switch(game) {
             case "ZombieMil":
                 descstring = "Shot Dead is an action shooter game being made in Construct 2. You take control of a stationary turret with limited vertical movement, and they must protect the land from the surge of incoming zombies. They must collect and utilize a huge variety of weapons, ranging from fist cannons to chicken launchers to parasite guns. Precise aiming and knowing when to use which weapon will ensure victory, though you must be aware of multiple types of zombies that fly, sprint, and even hurl boulders. If your turret fails to dodge and destroy the undead, then you will surely join them.";
@@ -75,7 +74,7 @@
                 linkstring = "http://www.public.asu.edu/~kysun/AllGames/Brendan/";
                 break;                
             case "Elysium":
-                 descstring = "Elysium follows the story of a killing that happened in the Neon City. You can choose from multiple characters, each with their own reasons to pursue the killer. As you get closer to the answer, more and more questions arise. Something more sinister is happening beyond this seemingly trivial murder. The game follows a traditional horizontal SHMUP formula with added rogue-like elements. Choose from an enormous selection of abilities and powerups as you traverse through land, sky, and sea on the hunt for the truth. Along the way, you will encounter collossal bosses and other powerful enemies. Use the abilities and items you find on the way to take them out and secure victory.";
+                 descstring = "Elysium follows the story of a killing that happened in the Neon City. You can choose from multiple characters, each with their own reasons to pursue the killer. As you get closer to the answer, more and more questions arise. Something more sinister is happening beyond this seemingly trivial murder. The game follows a traditional horizontal SHMUP formula with added rogue-like elements. Choose from an enormous selection of abilities and powerups as you traverse through land, sky, and sea on the hunt for the truth. Along the way, you will encounter collossal bosses and other powerful enemies. Use the abilities and items you find on the way to take them out and secure victory. No demo available yet.";
                 break;
             case "GMTK":
                 descstring = "Sans Grobot was made in 2 days for the Game Maker Toolkit's gamejam. The theme was to have a single control be responsible for multiple aspects of the game. In the game, you are a robot with a gun tasked with shooting monsters. There is a resource bar used for shooting, getting new guns, and dashing, and it gets filled by moving and killing enemies. Guns with randomly generated stats are occasionally dropped, and giant bosses eventually spawn. The goal is to last as long as possible while attaining the highest amount of resources possible.";
@@ -86,45 +85,142 @@
                 linkstring = "https://yaomon.itch.io/hero-2-zero";
                 break;
             case "Curveball":
-                descstring = "Curvball is a game made in 2 days using the trial version of Game Maker Studio 2 and published with the full version. It's main purpose was to learn GMS2 in perpartion for teaching the engine. Outwardly it appears to be a simple take on the much adored Pong, but the mechanics behind the full game vary drastically. The ball can be curved, sliced, angled and aimed for an extreme amount of skill expression. 3 types of paddles, the slow big paddle, the fast small paddle, and the average paddle, can be paired with 3 skills, hit the ball harder with correct timing, otemporarily extend the paddle size, and get a small burst of speed. With these added twists on an old favorite, Curveball is a fresh new take on the time-tested experience of Pong. Local multiplayer and matchs against a CPU AI are available.";
+                descstring = "Curveball is a game made in 2 days using the trial version of Game Maker Studio 2 and published with the full version. It's main purpose was to learn GMS2 in perpartion for teaching the engine. Outwardly it appears to be a simple take on the much adored Pong, but the mechanics behind the full game vary drastically. The ball can be curved, sliced, angled and aimed for an extreme amount of skill expression. 3 types of paddles, the slow big paddle, the fast small paddle, and the average paddle, can be paired with 3 skills, hit the ball harder with correct timing, otemporarily extend the paddle size, and get a small burst of speed. With these added twists on an old favorite, Curveball is a fresh new take on the time-tested experience of Pong. Local multiplayer and matchs against a CPU AI are available.";
                 linkstring = "https://yaomon.itch.io/curveball";
+                break;
+            case "Snake":
+                descstring = "A simple game of snake made with Javascript, CSS, and HTML. Graphics are drawn using HTML DOM elements. There are adjustable parameters for the game allowing for varied speeds of the snake and various board sizes for play.";
+                linkstring = "http://www.public.asu.edu/~kysun/Snake/";
+                break;
+            case "PolyBit":
+                descstring = "Polybit Runner is a simple running game being made in the Unity engine. You run for as far as possible. Hitting bombs and walls take away health, and if your health reaches 0 or if you fall off, you lose. You can get various powerups with various effects such as extra jumps and faster running. Run as far as you can and collect coins. There are planned updates for cosmetics and permanent powerups that can be purchased with the coins, as well as other powerups to be earned during the run.";
+                linkstring = "";
+                break;
+            case "HideOrDie":
+                descstring = "HideOrDie is an FPS horror reimagining of a role-reversed Pac Man. Player model, Bazooka model, base of the main menu, and music made by others. Initially, a randomly generated maze is spawned with different rooms, chests, buttons, and powerups strewn throughout.";
+                linkstring = "";
+                break;
+            case "PJRedesign":
+                descstring = "This is a semi-functional, conceptual redesign of the PixelJoint website made with the goal of improving user experience and usability. ";
+                linkstring = "http://www.public.asu.edu/~kysun/PJRedes/";
+                break;
+            case "Kwest":
+                descstring = "Kwest is a game being developed in Swift for iOS. It is a turn based RPG with procedurally generated skills and abilities. There also items that provide boosts and powers. There are multiple classes that each have their own benefits and drawbacks. The player can upload their own avatar photo, and the game uses the DarkSky API to provide batttle advantages based on the weather conditions of the player in real time. There are also randomized events that occur instead of battles that can affect a players run. The player wins after enough battles.";
+                break;
+            case "LordBless":
+                descstring = "This is a prototype Virtual Reality game. You play as a government employee working at the border, ensuring no threat gets by and enters the motherland. The game takes obvious inspiration from Papers Please, though offers a few features of its own. The main structure still relies on a visual-novel narrative to drive the gameplay forward. There are full VR interactions with the objects and environments in the game. The game strives to build a somber and gritty atmosphere while keeping player motivation through compelling storylines and occasional lighthearted, optimistic breaks.";
+                break;
+            case "DodgeDoctor":
+                descstring = "The Dodge Doctor is a prototype webapp that utilizes the Riot Games API for their popular game League of Legends. The site allows the user to copy in the names of the teammates in the lobby and enter it as inputs, along with the champions that hey have selected to play. The website then uses a highly complex, proprietary formula developed by renowned mathematician Eric Peshkin to calculate the team's chances of winnin before the game even starts. The formula pulls massive amounts of data ranging from each players objective control and macro play down to the micro and mechanics. This ensures a high accuracy in predicting. For now, the website has not been updated since the API functions it was using has been deprecated."
                 break;
             default:
                 descstring = "";
                 break;                 
         }
-        imgel.click(function () {
-            $("#codeprev").css("background-image", $(this).css("background-image"));
-            var image = new Image();
-            image.src = $(this).css("background-image").match(/^url\(["']?(.+?)["']?\)$/)[1];
-            $("#gametitle").attr("src", "Images/Games/" + type + "/" + game + "/t.gif");
-            $("#descpara").html(descstring);
-            $("#gamelink").attr("href", linkstring);
-        });  
+        if (linkstring.length > 0) {
+            imgel.click(function () {
+                $("#codeprev").css("background-image", $(this).css("background-image"));
+                var image = new Image();
+                image.src = $(this).css("background-image").match(/^url\(["']?(.+?)["']?\)$/)[1];
+                $("#gametitle").attr("src", "Images/Games/" + type + "/" + game + "/t.gif");
+                $("#descpara").html(descstring);
+                $("#gamelink").attr("href", linkstring);
+                if ($("#codego").hasClass("disabled")) {
+                    $("#codego").removeClass("disabled");
+                }
+            });             
+        } else {
+            imgel.click(function () {
+                $("#codeprev").css("background-image", $(this).css("background-image"));
+                var image = new Image();
+                image.src = $(this).css("background-image").match(/^url\(["']?(.+?)["']?\)$/)[1];
+                $("#gametitle").attr("src", "Images/Games/" + type + "/" + game + "/t.gif");
+                $("#descpara").html(descstring);
+                $("#gamelink").removeAttr("href");
+                if (!$("#codego").hasClass("disabled")) {
+                    $("#codego").addClass("disabled");
+                }
+            });        
+        }
         
         imgwrap.addClass("noselect");
         imgel.css("background-image", "url(" + imurl + ")");
         imgwrap.append(imgel);        
         $("#codegal").append(imgwrap);
+        return imgel;
     }
 	
 	window.onresize = redraw;
     window.onload = function () {              
         $("#codetab1").click(function () { 
+            for (var i = 0; i<timeouts.length; i++) {
+              clearTimeout(timeouts[i]);
+            }
             $("#codegal").html("");
-            addPrev("Construct", "ZombieMil");
-            addPrev("Construct", "Vale");
-            addPrev("Construct", "Brad");
-            addPrev("Construct", "Voyage");  
+            var first = addPrev("Construct", "ZombieMil");
+            timeouts.push(setTimeout(function(){
+                addPrev("Construct", "Vale");
+            }, 50));
+            timeouts.push(setTimeout(function(){
+                addPrev("Construct", "Brad");
+            }, 100));
+            timeouts.push(setTimeout(function(){
+                addPrev("Construct", "Voyage"); 
+            }, 150));
             $(this).addClass("selected");
+            first.click();
         });
         
         $("#codetab2").click(function () {
             $("#codegal").html("");
-            addPrev("GameMaker", "Elysium");
-            addPrev("GameMaker", "GMTK");
-            addPrev("GameMaker", "LD39");
-            addPrev("GameMaker", "Curveball");
+            for (var i = 0; i<timeouts.length; i++) {
+              clearTimeout(timeouts[i]);
+            }
+            $("#codegal").html("");
+            var first = addPrev("GameMaker", "Elysium");
+            timeouts.push(setTimeout(function(){
+                addPrev("GameMaker", "GMTK");
+            }, 50));
+            timeouts.push(setTimeout(function(){
+                addPrev("GameMaker", "LD39");
+            }, 100));
+            timeouts.push(setTimeout(function(){
+                addPrev("GameMaker", "Curveball");
+            }, 150));
+            first.click();
+        });
+        
+         $("#codetab3").click(function () {
+            $("#codegal").html("");
+            for (var i = 0; i<timeouts.length; i++) {
+              clearTimeout(timeouts[i]);
+            }
+            var first = addPrev("Unity", "PolyBit");
+            timeouts.push(setTimeout(function(){
+                addPrev("Unity", "HideOrDie");
+            }, 50));
+            timeouts.push(setTimeout(function(){
+                addPrev("Unity", "LordBless");
+            }, 100));
+            first.click();
+        });
+        
+        $("#codetab4").click(function () {
+            $("#codegal").html("");
+            for (var i = 0; i<timeouts.length; i++) {
+              clearTimeout(timeouts[i]);
+            }
+            var first = addPrev("Misc", "Snake");
+            timeouts.push(setTimeout(function(){
+                addPrev("Misc", "PJRedesign");
+            }, 50));
+            timeouts.push(setTimeout(function(){
+                addPrev("Misc", "Kwest");
+            }, 100));
+            timeouts.push(setTimeout(function(){
+                addPrev("Misc", "DodgeDoctor");
+            }, 150));
+            first.click();            
         });
         
         $(".codetab").click(function () {
@@ -132,10 +228,21 @@
             $(this).addClass("selected");
         });
         $("#codeprev").css("background-image", "url(Images/Games/Construct/ZombieMil/game.gif)");
-        addPrev("Construct", "ZombieMil");
-        addPrev("Construct", "Vale");
-        addPrev("Construct", "Brad");
-        addPrev("Construct", "Voyage");  
+        for (var i = 0; i<timeouts.length; i++) {
+          clearTimeout(timeouts[i]);
+        }
+        $("#codegal").html("");
+        var first = addPrev("Construct", "ZombieMil");
+        timeouts.push(setTimeout(function(){
+            addPrev("Construct", "Vale");
+        }, 50));
+        timeouts.push(setTimeout(function(){
+            addPrev("Construct", "Brad");
+        }, 100));
+        timeouts.push(setTimeout(function(){
+            addPrev("Construct", "Voyage"); 
+        }, 150));
+        first.click();
         redraw();        
         $("#codegal").on("mousewheel", scrollHorizontally);
         // Firefox
