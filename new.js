@@ -3,8 +3,8 @@
 (function () {
     "use strict";
     var scroll1, scroll2, scroll3, scroll4, scroll1counter = 0, scroll2counter = 0, scroll3counter = 0, scroll4counter = 0, slidecounter = 0, category,
-        slides = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "d1", "d2", "d3", "t1"];
-    
+        slides = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "d1", "d2", "d3", "t1"];
+    slides = shuffle(slides);
     function redrawFullImg(bgwidth, bgheight) {
         switch (category) {
         case "pixel":
@@ -215,4 +215,18 @@
         setInterval(slideChange, 5000);
     };
     
+    function shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+
+      while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    }
+
 }());

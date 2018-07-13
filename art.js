@@ -6,10 +6,10 @@
         charImages = 34,
         effImages = 14,
         objImages = 15,
-        sceneImages = 17,
+        sceneImages = 18,
         digImages = 12,
-        TDImages = 11;
-
+        TDImages = 12;
+    
     function redrawFullImg(bgwidth, bgheight) {
         switch (category) {
         case "pixel":
@@ -165,7 +165,7 @@
             $(image).load(function () {
                 redrawFullImg(image.width, image.height);
             });
-            $("#gallery").animate({scrollLeft: 192.5 * (scrollNum + parseInt(index, 10) - 1)}, 400, "swing");
+            $("#gallery").animate({scrollLeft: this.parentElement.offsetWidth * (scrollNum + parseInt(index, 10) - 1)}, 400, "swing");
         });
         $("#gallery").append(imgwrap);
     }
@@ -184,7 +184,7 @@
         });
         $("#catobj").click(function () {
             $("#fullimg").css("background-image", "url(Images/Gallery/Pixel/o1.gif)");
-            $("#gallery").animate({scrollLeft: 192.5 * (charImages)}, 300, "swing");
+            $("#gallery").animate({scrollLeft: document.getElementsByClassName("imgwrap")[0].offsetWidth * (charImages)}, 300, "swing");
             var image = new Image();
             image.src = "Images/Gallery/Pixel/o1.gif";
             $(image).load(function () {
@@ -194,7 +194,7 @@
         
         $("#cateff").click(function () {
             $("#fullimg").css("background-image", "url(Images/Gallery/Pixel/f1.gif)");
-            $("#gallery").animate({scrollLeft: 192.5 * (charImages + objImages)}, 300, "swing");
+            $("#gallery").animate({scrollLeft: document.getElementsByClassName("imgwrap")[0].offsetWidth * (charImages + objImages)}, 300, "swing");
             var image = new Image();
             image.src = "Images/Gallery/Pixel/f1.gif";
             $(image).load(function () {
@@ -204,7 +204,7 @@
                            
         $("#catscene").click(function () {
             $("#fullimg").css("background-image", "url(Images/Gallery/Pixel/s1.gif)");
-            $("#gallery").animate({scrollLeft: 192.5 * (charImages + objImages + effImages)}, 300, "swing");
+            $("#gallery").animate({scrollLeft: document.getElementsByClassName("imgwrap")[0].offsetWidth * (charImages + objImages + effImages)}, 300, "swing");
             var image = new Image();
             image.src = "Images/Gallery/Pixel/s1.gif";
             $(image).load(function () {

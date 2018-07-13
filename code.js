@@ -2,8 +2,6 @@
 /*global $, jQuery, alert*/
 (function () {
     "use strict";
-    var timeouts = [];
-    
 	function redraw() {
         $(".codetab").each(function (index) {
             // Set tab right skew angle
@@ -50,7 +48,6 @@
         imurl = "Images/Games/" + type + "/" + game + "/game.gif";
         imgwrap = $("<div></div>").addClass("gamewrap");
         imgel = $("<div></div>").addClass("gameprev");
-        imgel.fadeTo(200, 0.3);
         imgel.click(function () {
             $(".gameprev").removeClass("selected");
             $(this).addClass("selected");
@@ -97,7 +94,7 @@
                 linkstring = "";
                 break;
             case "HideOrDie":
-                descstring = "HideOrDie is an FPS horror reimagining of a role-reversed Pac Man. Player model, Bazooka model, base of the main menu, and music made by others. Initially, a randomly generated maze is spawned with different rooms, chests, buttons, and powerups strewn throughout.";
+                descstring = "HideOrDie is an FPS horror reimagining of a role-reversed Pac Man. Player model, Bazooka model, base of the main menu, and music made by others. Initially, a randomly generated maze is spawned with different rooms, chests, buttons, and powerups strewn throughout. Weapons can be found with procedurally generated stas. There is a Pac-Man monster that pathfinds its way to the player through the generated maze. You must find a button to unlock the exit hatch and reach the exit in time before the mosnter manges to find you. The monster can break through walls and you can hide inside a locker to drop line of sight if the monster is nearby. You must reach the exit to win!";
                 linkstring = "";
                 break;
             case "PJRedesign":
@@ -153,73 +150,38 @@
 	window.onresize = redraw;
     window.onload = function () {              
         $("#codetab1").click(function () { 
-            for (var i = 0; i<timeouts.length; i++) {
-              clearTimeout(timeouts[i]);
-            }
             $("#codegal").html("");
             var first = addPrev("Construct", "ZombieMil");
-            timeouts.push(setTimeout(function(){
-                addPrev("Construct", "Vale");
-            }, 50));
-            timeouts.push(setTimeout(function(){
-                addPrev("Construct", "Brad");
-            }, 100));
-            timeouts.push(setTimeout(function(){
-                addPrev("Construct", "Voyage"); 
-            }, 150));
+            addPrev("Construct", "Vale");
+            addPrev("Construct", "Brad");
+            addPrev("Construct", "Voyage"); 
             $(this).addClass("selected");
             first.click();
         });
         
         $("#codetab2").click(function () {
             $("#codegal").html("");
-            for (var i = 0; i<timeouts.length; i++) {
-              clearTimeout(timeouts[i]);
-            }
-            $("#codegal").html("");
             var first = addPrev("GameMaker", "Elysium");
-            timeouts.push(setTimeout(function(){
-                addPrev("GameMaker", "GMTK");
-            }, 50));
-            timeouts.push(setTimeout(function(){
-                addPrev("GameMaker", "LD39");
-            }, 100));
-            timeouts.push(setTimeout(function(){
-                addPrev("GameMaker", "Curveball");
-            }, 150));
+            addPrev("GameMaker", "GMTK");
+            addPrev("GameMaker", "LD39");
+            addPrev("GameMaker", "Curveball");
             first.click();
         });
         
          $("#codetab3").click(function () {
             $("#codegal").html("");
-            for (var i = 0; i<timeouts.length; i++) {
-              clearTimeout(timeouts[i]);
-            }
             var first = addPrev("Unity", "PolyBit");
-            timeouts.push(setTimeout(function(){
-                addPrev("Unity", "HideOrDie");
-            }, 50));
-            timeouts.push(setTimeout(function(){
-                addPrev("Unity", "LordBless");
-            }, 100));
+            addPrev("Unity", "HideOrDie");
+            addPrev("Unity", "LordBless");
             first.click();
         });
         
         $("#codetab4").click(function () {
             $("#codegal").html("");
-            for (var i = 0; i<timeouts.length; i++) {
-              clearTimeout(timeouts[i]);
-            }
-            var first = addPrev("Misc", "Snake");
-            timeouts.push(setTimeout(function(){
-                addPrev("Misc", "PJRedesign");
-            }, 50));
-            timeouts.push(setTimeout(function(){
-                addPrev("Misc", "Kwest");
-            }, 100));
-            timeouts.push(setTimeout(function(){
-                addPrev("Misc", "DodgeDoctor");
-            }, 150));
+            var first = addPrev("Misc", "Snake");            
+            addPrev("Misc", "PJRedesign");
+            addPrev("Misc", "Kwest");
+            addPrev("Misc", "DodgeDoctor");
             first.click();            
         });
         
@@ -228,20 +190,11 @@
             $(this).addClass("selected");
         });
         $("#codeprev").css("background-image", "url(Images/Games/Construct/ZombieMil/game.gif)");
-        for (var i = 0; i<timeouts.length; i++) {
-          clearTimeout(timeouts[i]);
-        }
         $("#codegal").html("");
         var first = addPrev("Construct", "ZombieMil");
-        timeouts.push(setTimeout(function(){
-            addPrev("Construct", "Vale");
-        }, 50));
-        timeouts.push(setTimeout(function(){
-            addPrev("Construct", "Brad");
-        }, 100));
-        timeouts.push(setTimeout(function(){
-            addPrev("Construct", "Voyage"); 
-        }, 150));
+        addPrev("Construct", "Vale");
+        addPrev("Construct", "Brad");
+        addPrev("Construct", "Voyage"); 
         first.click();
         redraw();        
         $("#codegal").on("mousewheel", scrollHorizontally);

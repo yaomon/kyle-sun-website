@@ -283,7 +283,7 @@ p {
 }
 
 .catbutt:focus {
-    outline: none !important;
+    outline: none;
     box-shadow: 0px 0px 5px rgb(0, 255, 255) inset;
 }
 
@@ -510,7 +510,7 @@ p {
 }
 
 #codego.disabled {
-    opacity: 0.5;
+    opacity: 0.2;
     cursor: not-allowed;
 }
 
@@ -528,6 +528,7 @@ p {
     width: 20vmin;
     overflow: hidden;
     height: 20vmin;
+    border-right: 7px;
     border-right-style: solid;
     border-color: rgb(180, 180, 180);
     -ms-transform: skewX(-20deg); 
@@ -542,6 +543,7 @@ p {
     height: 100%;
     margin: auto;
     margin-left: -50px;
+    margin-top: -20px;
     -ms-transform: skewX(20deg); 
     -webkit-transform: skewX(20deg); 
     transform: skewX(20deg);
@@ -591,7 +593,7 @@ p {
 }
 
 #logoart {
-    width: 10%;
+    width: 7%;
     position: absolute;
     left: 1%;
     top: 1%;
@@ -680,7 +682,7 @@ p {
     align-items: center;
 }
 
-#info, #contactinfo {
+#info {
     width: 45%;
     margin-left: 7vw;
     margin-top: 25vh;
@@ -711,7 +713,7 @@ p {
     bottom: 0;
     position: absolute;
     z-index: -1;
-    transform: rotate(-45deg);
+    transform: rotate(-40deg);
     overflow: hidden;
 }
 
@@ -722,7 +724,7 @@ p {
     top: 0;
     position: absolute;
     z-index: -1;
-    transform: rotate(45deg);
+    transform: rotate(70deg);
     overflow: hidden;
 }
 
@@ -740,7 +742,6 @@ p {
 
 .abut:hover {
     opacity: 1.0;
-    margin-top: 0%;
     font-size: 2.1em;
     cursor: pointer;
 }
@@ -765,14 +766,34 @@ p {
     color: rgb(40, 200, 200);
 }
 
-.icon {
-    width: 32px;    
-    opacity: 0.5;
-    vertical-align: text-bottom;
+#links, #sources {
+    float: left;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
-.icon:hover {
-    opacity: 1;
+#sources {
+    text-align: right;
+    line-height: 3.24;
+    border-right: solid;
+    border-width: 0px 2px 0px 0px;
+    border-color: rgb(80, 80, 80);
+}
+
+#links {
+    line-height: 2;
+    vertical-align: middle;
+}
+
+#contactinfo {
+    width: 45%;
+    margin-left: 5vw;
+    margin-top: 10vh;
+    font-family: sans-serif;
+    font-size: 1vmax;
+    line-height: 1.5;
+    font-weight: bold;
+    float: left;
 }
 
 .noselect {
