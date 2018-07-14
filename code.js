@@ -154,7 +154,6 @@
             var first = addPrev("Construct", "ZombieMil");
             addPrev("Construct", "Vale");
             addPrev("Construct", "Brad");
-            addPrev("Construct", "Voyage"); 
             $(this).addClass("selected");
             first.click();
         });
@@ -194,7 +193,6 @@
         var first = addPrev("Construct", "ZombieMil");
         addPrev("Construct", "Vale");
         addPrev("Construct", "Brad");
-        addPrev("Construct", "Voyage"); 
         first.click();
         redraw();        
         $("#codegal").on("mousewheel", scrollHorizontally);

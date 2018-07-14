@@ -517,8 +517,8 @@ p {
 #gametitle {
     float: left;
     padding-bottom: 5%;
-    padding-right: 2%;
-    padding-lefT: 2%;
+    padding-right: 4%;
+    padding-lefT: 4%;
     width: 26.667vw;
     margin: auto;
 }
