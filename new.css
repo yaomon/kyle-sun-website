@@ -683,7 +683,7 @@ p {
 }
 
 #info {   
-    margin-top: 25vh;    
+    margin-top: 15vh;    
 }
 
 #infowrap, #linkswrap {
@@ -703,7 +703,7 @@ p {
     -ms-transform: skewX(20deg); 
     -webkit-transform: skewX(20deg); 
     transform: skewX(20deg);
-    width: 55%;
+    width: 40%;
     padding-right: 8vw;
     padding-left: 20vw;  
     margin-left: -15vw;
@@ -722,7 +722,7 @@ p {
     transform: skewX(-50deg);
     background-color: rgb(255, 255, 180);
     width: 50%;
-    bottom: 15%;
+    bottom: 5%;
     text-align: center;
     margin-left: -22vw;
     
