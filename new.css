@@ -438,20 +438,20 @@ p {
     transition: 0.4s;
 }
 
-#gallery::-webkit-scrollbar{
+#gallery::-webkit-scrollbar {
     height: 24px;
 }
 
-#gallery::-webkit-scrollbar-track{
+#gallery::-webkit-scrollbar-track, #tos::-webkit-scrollbar-track{
     background: transparent;
 }
 
-#gallery::-webkit-scrollbar-thumb{
+#gallery::-webkit-scrollbar-thumb, #tos::-webkit-scrollbar-thumb{
     background: rgb(180, 180, 180);
     border-radius: 10px;
 }
 
-#gallery::-webkit-scrollbar-thumb:hover{
+#gallery::-webkit-scrollbar-thumb:hover, #tos::-webkit-scrollbar-thumb:hover{
     background: rgb(140, 140, 140);
 }
 
@@ -593,10 +593,10 @@ p {
 }
 
 #logoart {
-    width: 7%;
+    width: 9%;
     position: absolute;
-    left: 1%;
-    top: 1%;
+    left: 0.5%;
+    top: 0.5%;
     image-rendering: pixelated;
     z-index: 1;
     opacity: 0.3;
@@ -620,8 +620,8 @@ p {
     position: absolute;
     left: 0px;
     background-color: rgb(170, 170, 170);
-    width: 80%;
-    margin-left: -4.5%;
+    width: 83%;
+    margin-left: -6.5%;
     height: 80%;
     bottom: 5%;
     overflow: hidden;
@@ -682,22 +682,63 @@ p {
     align-items: center;
 }
 
-#info {
-    width: 45%;
-    margin-left: 7vw;
-    margin-top: 25vh;
+#info {   
+    margin-top: 25vh;    
+}
+
+#infowrap, #linkswrap {
+    padding: 1vmax;
+    padding-left: 9vw;    
     font-family: sans-serif;
     font-size: 1vmax;
     line-height: 1.5;
     font-weight: bold;
     float: left;
+    clear: left;   
+}
+
+#infowrap {
+    position: absolute;
+    background-color: rgb(180, 255, 180);
+    -ms-transform: skewX(20deg); 
+    -webkit-transform: skewX(20deg); 
+    transform: skewX(20deg);
+    width: 55%;
+    padding-right: 8vw;
+    padding-left: 20vw;  
+    margin-left: -15vw;
+}
+
+#infoskew {
+    -ms-transform: skewX(-20deg); 
+    -webkit-transform: skewX(-20deg); 
+    transform: skewX(-20deg);
+}
+
+#linkswrap {
+    position: absolute;
+    -ms-transform: skewX(-50deg); 
+    -webkit-transform: skewX(50deg); 
+    transform: skewX(-50deg);
+    background-color: rgb(255, 255, 180);
+    width: 50%;
+    bottom: 15%;
+    text-align: center;
+    margin-left: -22vw;
+    
+}
+
+#linkskew {
+    -ms-transform: skewX(50deg); 
+    -webkit-transform: skewX(50deg); 
+    transform: skewX(50deg);
 }
 
 #me {
-    float: left;
+    float: right;
     margin-left: 2%;
     padding-top: 10vh;
-    width: 30%;
+    width: 30vmax;
 }
 
 #about {
@@ -730,10 +771,9 @@ p {
 
 .abut {
     background: transparent;
-    font-size: 2em;
+    font-size: 1.5em;
     border: none;
     font-weight: bolder;
-    margin: 0.5%;
     opacity: 0.5;
     -ms-transition: 0.1s; 
     -webkit-transition: 0.1s; 
@@ -742,7 +782,7 @@ p {
 
 .abut:hover {
     opacity: 1.0;
-    font-size: 2.1em;
+    font-size: 1.55em;
     cursor: pointer;
 }
 
@@ -770,11 +810,14 @@ p {
     float: left;
     padding-left: 2%;
     padding-right: 2%;
+    -ms-transform: skewX(-20deg); 
+    -webkit-transform: skewX(-20deg); 
+    transform: skewX(-20deg);
 }
 
 #sources {
     text-align: right;
-    line-height: 3.24;
+    font-size: 1.5em;
     border-right: solid;
     border-width: 0px 2px 0px 0px;
     border-color: rgb(80, 80, 80);
@@ -785,15 +828,87 @@ p {
     vertical-align: middle;
 }
 
-#contactinfo {
-    width: 45%;
+#tos {
+    position: absolute;
+    bottom: 4%;
+    height: 50vh;
+    width: 95%;
     margin-left: 5vw;
-    margin-top: 10vh;
+    padding-top: 5%;
+    font-size: 0.8vmax;
+    line-height: 1.2;
+    overflow-y: scroll;
+    clear: both;
+    
+}
+
+#tos::-webkit-scrollbar{
+    width: 24px;
+}
+
+h1 {
+    font-family: sans-serif;
+    text-align: center;
+    width: 50%;
+     -ms-transform: skewX(-10deg); 
+    -webkit-transform: skewX(-10deg); 
+    transform: skewX(-10deg);}
+
+#prices {
+    padding-left: 5vw;
+     -ms-transform: skewX(10deg); 
+    -webkit-transform: skewX(10deg); 
+    transform: skewX(10deg);
+    position: absolute;
+    right: -3vw;
+    width: 38vw;
+    font-size: 1vmax;
+    height: 33vh;
+    float: right;
+    margin-top: 2vw;
+    background-color: antiquewhite;
+}
+
+#sizes, #sizeprice {
+    font-family: sans-serif;
+    font-size: 1em;
+    float: left;
+    padding-left: 2%;
+    padding-right: 2%;
+    line-height: 2;
+    -ms-transform: skewX(-10deg); 
+    -webkit-transform: skewX(-10deg); 
+    transform: skewX(-10deg);
+}
+
+#sizes {
+    text-align: right;
+    border-right: solid;
+    border-width: 0px 2px 0px 0px;
+    border-color: rgb(80, 80, 80);
+}
+
+#sizeprice {
+    vertical-align: middle; 
+    font-weight: bolder;
+}
+
+#contactinfo {
+    position: absolute;
+    width: 65vw;
+    -ms-transform: skewX(20deg); 
+    -webkit-transform: skewX(20deg); 
+    transform: skewX(20deg);
+    padding: 1%;
+    padding-left: 150px;
+    margin-left: -100px;
+    margin-top: 11vh;
     font-family: sans-serif;
     font-size: 1vmax;
     line-height: 1.5;
     font-weight: bold;
-    float: left;
+    background-color: rgb(255, 180, 180);
+    float: left;   
 }
 
 .noselect {
