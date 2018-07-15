@@ -852,7 +852,9 @@ h1 {
     width: 50%;
      -ms-transform: skewX(-10deg); 
     -webkit-transform: skewX(-10deg); 
-    transform: skewX(-10deg);}
+    transform: skewX(-10deg);
+    margin: 3%;
+}
 
 #prices {
     padding-left: 5vw;
@@ -863,19 +865,19 @@ h1 {
     right: -3vw;
     width: 38vw;
     font-size: 1vmax;
-    height: 33vh;
+    height: 42vh;
     float: right;
     margin-top: 2vw;
     background-color: antiquewhite;
 }
 
-#sizes, #sizeprice {
+#sizes, #sizeprice, #pricesdesc {
     font-family: sans-serif;
     font-size: 1em;
     float: left;
     padding-left: 2%;
     padding-right: 2%;
-    line-height: 2;
+    line-height: 1.5;
     -ms-transform: skewX(-10deg); 
     -webkit-transform: skewX(-10deg); 
     transform: skewX(-10deg);
@@ -891,6 +893,12 @@ h1 {
 #sizeprice {
     vertical-align: middle; 
     font-weight: bolder;
+}
+
+#pricesdesc {
+    margin-top: 2%;
+    width: 77%;
+    line-height: 1.5;
 }
 
 #contactinfo {
