@@ -10,6 +10,7 @@
         digImages = 12,
         TDImages = 12;
     
+    // Resizes the fullimg preview proportionally to the size of the image given in the parameters and the window size.
     function redrawFullImg(bgwidth, bgheight) {
         switch (category) {
         case "pixel":
@@ -48,6 +49,7 @@
         }
     }
     
+    // Redo the skewing of each skewed element as to line up accodring to the window width and height.
 	function redraw() {
         $(".arttab").each(function (index) {
             // Set tab right skew angle
@@ -96,6 +98,7 @@
         }
     }
     
+    // Functions to scroll the background on the category tabs.
     function scroll1artf() {
         if (scroll1artcounter === 1200) {
             scroll1artcounter = 0;
@@ -132,6 +135,8 @@
         scroll3artcounter += 1;
     }
     
+        
+    // Allow for horizontal scrolling with the mouse wheel on the gallery window.
     function scrollHorizontally(e) {
         e = window.event || e;
         var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
@@ -139,10 +144,12 @@
         e.preventDefault();
     }
     
+    // Scroll the gallery    
     function scrollGal(amount) {
         $("#gallery").scrollLeft($("#gallery").scrollLeft() + amount);
     }
     
+    // Add a preview image for the gallery with the properties given in the parameters.
     function addPrev(cat, num, scrollNum, type, format) {
         var imurl, imgwrap, imgel;
         imurl = "Images/Gallery/" + type + "/" + cat + num + format;
@@ -170,6 +177,7 @@
         $("#gallery").append(imgwrap);
     }
     
+    //  Set the gallery to the pixel gallery and adds the appropriate previews.    
     function setGalPixel() {
         var i;
         $("#categories").html('<button class = "catbutt noselect" id = "catchar">CHARACTER</button><button class = "catbutt noselect" id = "catobj">OBJECT</button><button class = "catbutt noselect" id = "cateff">EFFECTS</button><button class = "catbutt noselect" id = "catscene">SCENES</button>');
@@ -242,6 +250,7 @@
         $("#gallery").animate({scrollLeft: 0}, 400, "swing");
     }
     
+    //  Set the gallery to the digital gallery and adds the appropriate previews.   
     function setGalDigital() {
         var i;
         $("#categories").html("");
@@ -252,6 +261,7 @@
         $("#gallery").animate({scrollLeft: 0}, 400, "swing");
     }
     
+    //  Set the gallery to the 3D gallery and adds the appropriate previews.   
     function setGalTD() {
         var i;
         $("#categories").html("");
@@ -261,8 +271,10 @@
         }
         $("#gallery").animate({scrollLeft: 0}, 400, "swing");
     }
-
+    
     window.onresize = redraw;
+    
+    //  Set onclick, resize functions on window load and redraw all.
     window.onload = function () {
         scroll1art = setInterval(scroll1artf, 60);
         $("#tabart1").hover(function () {

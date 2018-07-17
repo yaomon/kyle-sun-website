@@ -5,6 +5,8 @@
     var scroll1, scroll2, scroll3, scroll4, scroll1counter = 0, scroll2counter = 0, scroll3counter = 0, scroll4counter = 0, slidecounter = 0, category,
         slides = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "d1", "d2", "d3", "t1"];
     slides = shuffle(slides);
+    
+    // Resizes the fullimg preview proportionally to the size of the image given in the parameters and the window size.
     function redrawFullImg(bgwidth, bgheight) {
         switch (category) {
         case "pixel":
@@ -43,6 +45,7 @@
         }
     }
     
+    // Redo the skewing of each skewed element as to line up accodring to the window width and height;
 	function redraw() {
         $(".maintab").each(function (index) {
             // Set tab right skew angle
@@ -77,6 +80,7 @@
         }
     }
     
+    // Functions to scroll the background on the category tabs.
     function scroll1f() {
         if (scroll1counter === 1200) {
             scroll1counter = 0;
@@ -125,6 +129,7 @@
         scroll4counter += 1;
     }
     
+    // Change the slide picture.
     function slideChange() {
         slidecounter += 1;
         var newPic = slides[slidecounter % slides.length], imurl = "url(Images/Gallery/Featured/", image, bgwidth, bgheight;
@@ -215,6 +220,7 @@
         setInterval(slideChange, 5000);
     };
     
+    //Function that takes in an array and randomly orders its elements.
     function shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex;
 

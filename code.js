@@ -1,7 +1,8 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
 (function () {
-    "use strict";
+    "use strict";    
+    // Redo the skewing of each skewed element as to line up accodring to the window width and height.
 	function redraw() {
         $(".codetab").each(function (index) {
             // Set tab right skew angle
@@ -36,13 +37,14 @@
 		$(".gameprev").css("-o-transform", "skewX(" + window.innerWidth  / 192 + "deg)");
     }
 	
-	    function scrollHorizontally(e) {
+	function scrollHorizontally(e) {
         e = window.event || e;
         var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
         $("#gallery").scrollLeft($("#gallery").scrollLeft() - (delta * 60));
         e.preventDefault();
     }
-	
+    
+	// Add a preview image for the gallery with the properties given in the parameters.
 	function addPrev(type, game) {
         var imurl, imgwrap, imgel, descstring, linkstring;
         imurl = "Images/Games/" + type + "/" + game + "/game.gif";
@@ -147,6 +149,7 @@
         return imgel;
     }
 	
+    // Set category changing on click and populate the initial preiviews.
 	window.onresize = redraw;
     window.onload = function () {              
         $("#codetab1").click(function () { 
